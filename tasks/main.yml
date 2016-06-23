@@ -1,0 +1,41 @@
+---
+- name: Install deb dependencies
+  apt:
+    pkg: "{{ item }}"
+    state: present
+  with_items:
+    - python-lxml
+
+- name: Ensure node_exporter skeleton dir
+  file:
+    dest: "{{ jmx_exporter_root_dir }}"
+    state: directory
+
+- name: Get jmx_exporter_javaagent.jar artifact
+  maven_artifact:
+    artifact_id: jmx_prometheus_javaagent
+    group_id: io.prometheus.jmx
+    extension: jar
+    dest: "{{ jmx_exporter_root_dir }}"
+    version: "{{ jmx_exporter_version }}"
+    repository_url: http://repository.int.sys.idealista:8081/nexus/content/repositories/central/
+
+- name: Add jmx_exporter config file
+  copy:
+    src: "{{ item.key }}.yml"
+    dest: "{{ jmx_exporter_root_dir }}"
+  with_dict: "{{ jmx_exporter_app }}"
+  notify: "restart {{ item.value.appName }}"
+
+- name: Add classpath options
+  blockinfile:
+    insertafter: EOF
+    dest: "{{ item.value.file }}"
+    marker: "# jmx exporter {{ item.value.appName }} {mark}"
+    block: "{{ item.value.block }}"
+    owner: "{{ item.value.user | default('core') }}"
+    group: "{{ item.value.group| default('core') }}"
+    state: present
+  with_dict: "{{ jmx_exporter_app }}"
+  notify: "restart {{ item.value.appName }}"
+
