@@ -42,6 +42,6 @@
 - name: Restart service
   service:
     name: "{{ item.value.appName }}"
-    state: restart tomcat
+    state: restarted
   when: javaagent_result|changed or config_result|changed
   with_dict: "{{ jmx_exporter_app }}"
