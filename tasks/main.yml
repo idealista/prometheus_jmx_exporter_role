@@ -38,4 +38,3 @@
     state: present
   with_dict: "{{ jmx_exporter_app }}"
   notify: "restart {{ item.value.appName }}"
-
