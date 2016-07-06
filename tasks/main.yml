@@ -32,6 +32,7 @@
   apt_repository:
     repo: "{{ jmx_exporter_repo }}"
     update_cache: yes
+    force: yes
 
 - name: Install jmx_exporter
   apt:
@@ -45,15 +46,15 @@
 - name: Ensure node exporter user
   user:
     name: "{{ jmx_exporter_user }}"
-    group: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_group }}"
     home: /bin/false
 
 - name: Copy jmx_exporter config
-  file:
+  copy:
     src: "{{ jmx_exporter_config }}"
-    dest: /etc/jmx_exporter/jmx_exporter.yaml
+    dest: "{{ jmx_exporter_config_file }}"
     owner: "{{ jmx_exporter_user }}"
-    group: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_group }}"
   notify: restart jmx_exporter
 
 - name: Copy jmx_exporter daemon
@@ -62,8 +63,6 @@
     dest: /etc/init.d/jmx_exporter
     mode: 0755
   notify: restart jmx_exporter
-    enabled: yes
-    state:
 
 - name: Register daemon
   service:

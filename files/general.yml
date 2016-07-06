@@ -1,4 +1,3 @@
 hostPort: localhost:1099
 rules:
   - pattern: '.*'
-

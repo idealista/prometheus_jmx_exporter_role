@@ -5,3 +5,5 @@ jmx_exporter_config: general.yml
 jmx_exporter_port: 9110
 jmx_exporter_config_file: /etc/jmx_exporter/jmx_exporter.yaml
 jmx_exporter_user: prometheus
+jmx_exporter_group: prometheus
+jmx_exporter_version: 0.6
