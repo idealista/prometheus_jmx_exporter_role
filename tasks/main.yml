@@ -31,12 +31,12 @@
   apt_repository:
     repo: "{{ jmx_exporter_repo }}"
     update_cache: yes
-    force: yes
 
 - name: Install jmx_exporter
   apt:
     pkg: jmx_prometheus_httpserver
     state: latest
+    force: true
 
 - name: Ensure node exporter group
   group:
