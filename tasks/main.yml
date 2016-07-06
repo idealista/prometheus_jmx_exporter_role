@@ -9,7 +9,6 @@
   file:
     dest: "{{ jmx_exporter_root_dir }}"
     state: absent
-    recurse: true
 
 - name: Remove java agent conf from setclasspath.sh
   blockinfile:
