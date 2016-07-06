@@ -1,3 +1,7 @@
 ---
-jmx_exporter_version: 0.6
+jmx_exporter_repo: deb http://hub1.pro.all.sys.idealista:8001/general squeeze main
 jmx_exporter_root_dir: /opt/jmx_exporter
+jmx_exporter_config: general.yml
+jmx_exporter_port: 9110
+jmx_exporter_config_file: /etc/jmx_exporter/jmx_exporter.yaml
+jmx_exporter_user: prometheus

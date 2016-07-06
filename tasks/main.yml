@@ -1,33 +1,17 @@
 ---
-- name: Install deb dependencies
-  apt:
-    pkg: "{{ item }}"
-    state: present
-  with_items:
-    - python-lxml
+#Remove previous jmx_exporter
+- name: Stop Tomcat
+  service:
+    name: idealista-tomcat
+    state: stopped
 
-- name: Ensure node_exporter skeleton dir
+- name: Remove java agent artifact and conf
   file:
     dest: "{{ jmx_exporter_root_dir }}"
-    state: directory
+    state: absent
+    recurse: true
 
-- name: Get jmx_exporter_javaagent.jar artifact
-  maven_artifact:
-    artifact_id: jmx_prometheus_javaagent
-    group_id: io.prometheus.jmx
-    extension: jar
-    dest: "{{ jmx_exporter_root_dir }}"
-    version: "{{ jmx_exporter_version }}"
-    repository_url: http://repository.int.sys.idealista:8081/nexus/content/repositories/central/
-
-- name: Add jmx_exporter config file
-  copy:
-    src: "{{ item.key }}.yml"
-    dest: "{{ jmx_exporter_root_dir }}"
-  with_dict: "{{ jmx_exporter_app }}"
-  register: config_result
-
-- name: Add java agent
+- name: Remove java agent conf from setclasspath.sh
   blockinfile:
     insertafter: EOF
     dest: "{{ item.value.file }}"
@@ -35,13 +19,54 @@
     block: "{{ item.value.block }}"
     owner: "{{ item.value.user | default('core') }}"
     group: "{{ item.value.group| default('core') }}"
-    state: present
+    state: absent
   with_dict: "{{ jmx_exporter_app }}"
-  register: javaagent_result
 
-- name: Restart service
+- name: Start service
   service:
-    name: "{{ item.value.appName }}"
+    name: idealista-tomcat
     state: restarted
-  when: javaagent_result|changed or config_result|changed
-  with_dict: "{{ jmx_exporter_app }}"
+
+#Install new jmx_exporter
+- name: Ensure idealista repo
+  apt_repository:
+    repo: "{{ jmx_exporter_repo }}"
+    update_cache: yes
+
+- name: Install jmx_exporter
+  apt:
+    pkg: jmx_prometheus_httpserver
+    state: latest
+
+- name: Ensure node exporter group
+  group:
+    name: "{{ jmx_exporter_group }}"
+
+- name: Ensure node exporter user
+  user:
+    name: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_user }}"
+    home: /bin/false
+
+- name: Copy jmx_exporter config
+  file:
+    src: "{{ jmx_exporter_config }}"
+    dest: /etc/jmx_exporter/jmx_exporter.yaml
+    owner: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_user }}"
+  notify: restart jmx_exporter
+
+- name: Copy jmx_exporter daemon
+  template:
+    src: jmx_exporter_daemon.j2
+    dest: /etc/init.d/jmx_exporter
+    mode: 0755
+  notify: restart jmx_exporter
+    enabled: yes
+    state:
+
+- name: Register daemon
+  service:
+    name: jmx_exporter
+    enabled: yes
+    state: started

@@ -1,0 +1,5 @@
+---
+- name: restart jmx_exporter
+  service:
+    name: jmx_exporter
+    state: restarted
