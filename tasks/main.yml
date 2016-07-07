@@ -61,5 +61,5 @@
 - name: Dont enable jmx_exporter on boot
   service:
     name: jmx_exporter
-    enabled: node  # yes
+    enabled: no  # yes
     state: stopped # started
