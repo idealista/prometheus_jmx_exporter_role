@@ -58,13 +58,8 @@
     mode: 0755
   #  notify: restart jmx_exporter
 
-- name: Register daemon
+- name: Dont enable jmx_exporter on boot
   service:
     name: jmx_exporter
-    enabled: yes
-    state: stopped
-
-- name: Start service
-  service:
-    name: idealista-tomcat
-    state: restarted
+    enabled: node  # yes
+    state: stopped # started
