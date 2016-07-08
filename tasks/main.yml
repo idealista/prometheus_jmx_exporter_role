@@ -32,6 +32,7 @@
     pkg: jmx_prometheus_httpserver
     state: latest
     force: true
+    update_cache: yes
 
 - name: Ensure node exporter group
   group:
@@ -61,5 +62,5 @@
 - name: Dont enable jmx_exporter on boot
   service:
     name: jmx_exporter
-    enabled: yes
+    enabled: no
     state: stopped # started
