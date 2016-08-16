@@ -27,14 +27,14 @@
     dest: "{{ jmx_exporter_config_file }}"
     owner: "{{ jmx_exporter_user }}"
     group: "{{ jmx_exporter_group }}"
-    #notify: restart jmx_exporter
+    notify: restart jmx_exporter
 
 - name: Copy jmx_exporter daemon
   template:
     src: jmx_exporter_daemon.j2
     dest: /etc/init.d/jmx_exporter
     mode: 0755
-    #notify: restart jmx_exporter
+    notify: restart jmx_exporter
 
 - name: Dont enable jmx_exporter on boot
   service:

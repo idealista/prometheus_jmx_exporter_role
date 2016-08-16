@@ -3,3 +3,4 @@
   service:
     name: jmx_exporter
     state: restarted
+  when: jmx_exporter_enabled == 'yes'
