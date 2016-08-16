@@ -39,5 +39,5 @@
 - name: Dont enable jmx_exporter on boot
   service:
     name: jmx_exporter
-    enabled: no
-    #state: started
+    enabled: "{{ jmx_exporter_enabled }}"
+    state: "{{ jmx_exporter_state }}"
