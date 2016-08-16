@@ -36,8 +36,8 @@
     mode: 0755
   notify: restart jmx_exporter
 
-- name: Dont enable jmx_exporter on boot
+- name: Dont enable jmx_exporter on boot by default
   service:
     name: jmx_exporter
     enabled: "{{ jmx_exporter_enabled }}"
-    state: "{{ jmx_exporter_state }}"
+    state: "{{ jmx_exporter_state|default(omit)}}"
