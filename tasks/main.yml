@@ -1,6 +1,7 @@
 ---
 - name: Ensure idealista repo
   apt_repository:
+    filename: "{{ jmx_exporter_repo_file | default(omit) }}"
     repo: "{{ jmx_exporter_repo }}"
     update_cache: yes
 

@@ -1,0 +1,3 @@
+---
+jmx_exporter_enabled: yes
+jmx_exporter_state: started

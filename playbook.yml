@@ -1,0 +1,4 @@
+---
+- hosts: all
+  roles:
+    - role: prometheus_jmx_exporter-role
