@@ -23,8 +23,9 @@ def test_jmx_exporter_package(Package, AnsibleDefaults):
 
 def test_jmx_exporter_user(User, Group, AnsibleDefaults):
     assert User(AnsibleDefaults["jmx_exporter_user"]).exists
-    assert User(AnsibleDefaults["jmx_exporter_user"]).home == "/bin/false"
     assert Group(AnsibleDefaults["jmx_exporter_group"]).exists
+    assert User(AnsibleDefaults["jmx_exporter_user"]).group == AnsibleDefaults["jmx_exporter_group"]
+    assert User(AnsibleDefaults["jmx_exporter_user"]).home == "/bin/false"
 
 def test_jmx_exporter_conf(File, AnsibleDefaults):
     jmx_exporter_config = File(AnsibleDefaults["jmx_exporter_config_file"])
