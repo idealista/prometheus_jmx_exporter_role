@@ -33,7 +33,7 @@ def test_jmx_exporter_conf(File, AnsibleDefaults):
     assert jmx_exporter_config.group == AnsibleDefaults["jmx_exporter_group"]
     assert jmx_exporter_config.user == AnsibleDefaults["jmx_exporter_user"]
 
-def test_jmx_exporter_service(File, Service, AnsibleDefaults):
+def test_jmx_exporter_service(File, Service, Socket, AnsibleDefaults):
     assert File("/etc/init.d/jmx_exporter").exists
     if AnsibleVarEnabled == "no":
         assert Service("jmx_exporter").is_enabled == False
