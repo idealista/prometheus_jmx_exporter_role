@@ -32,13 +32,13 @@
 
 - name: Copy jmx_exporter daemon
   template:
-    src: jmx_exporter_daemon.j2
-    dest: /etc/init.d/jmx_exporter
-    mode: 0755
+    src: jmx_exporter.service.j2
+    dest: /etc/systemd/system/jmx_exporter.service
+    mode: '0755'
   notify: restart jmx_exporter
 
 - name: Dont enable jmx_exporter on boot by default
-  service:
+  systemd:
     name: jmx_exporter
     enabled: "{{ jmx_exporter_enabled }}"
     state: "{{ jmx_exporter_state|default(omit)}}"

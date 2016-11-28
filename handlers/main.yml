@@ -1,6 +1,6 @@
 ---
 - name: restart jmx_exporter
-  service:
+  systemd:
     name: jmx_exporter
     state: restarted
   when: jmx_exporter_enabled == 'yes'

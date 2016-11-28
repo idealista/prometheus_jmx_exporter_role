@@ -1,0 +1,14 @@
+[Unit]
+Description=prometheus jmx exporter
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Restart=on-failure
+ExecStart=/bin/sh -c "jmx_exporter {{ jmx_exporter_port }} {{ jmx_exporter_config_file }}"
+User={{ jmx_exporter_user }}
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+
+[Install]
+WantedBy=multi-user.target
