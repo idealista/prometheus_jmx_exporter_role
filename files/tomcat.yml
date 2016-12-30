@@ -34,4 +34,3 @@ rules:
 - pattern: 'java.lang<type=Memory.*'
 - pattern: 'java.lang<type=MemoryPool.*'
 - pattern: 'java.lang<type=GarbageCollector, name=Copy, key=Survivor Space><LastGcInfo, memoryUsageBeforeGc>used'
-

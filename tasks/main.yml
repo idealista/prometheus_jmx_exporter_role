@@ -10,7 +10,8 @@
     pkg: jmx_prometheus_httpserver
     state: latest
     force: true
-    update_cache: yes
+  tags:
+    - skip_ansible_lint
 
 - name: Ensure node exporter group
   group:
