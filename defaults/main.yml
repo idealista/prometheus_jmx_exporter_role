@@ -1,9 +1,27 @@
 ---
-jmx_exporter_repo: 'deb http://hub1.pro.all.sys.idealista:8001/general squeeze main'
-jmx_exporter_repo_file: 'hub1_idealista'
-jmx_exporter_config_file: '/etc/jmx_exporter/jmx_exporter.yaml'
-jmx_exporter_config: 'tomcat.yml'
+## General
+
+jmx_exporter_version: 0.8
+
+## Service options
+
+# Owner
+jmx_exporter_user: prometheus
+jmx_exporter_group: prometheus
+
+# start on boot
+jmx_exporter_service_enabled: True
+# current state: started, stopped
+jmx_exporter_service_state: started
+
+# Files & Paths
+jmx_exporter_root_path: /opt/jmx_exporter
+jmx_exporter_conf_path: /etc/jmx_exporter
+jmx_exporter_log_path: /var/log/jmx_exporter
+jmx_exporter_log_file: "jmx_exporter.log"
+jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config"
+
+
+# Port & path
 jmx_exporter_port: 9110
-jmx_exporter_user: 'prometheus'
-jmx_exporter_group: 'prometheus'
-jmx_exporter_enabled: 'no'
+jmx_exporter_internal_port: 5555

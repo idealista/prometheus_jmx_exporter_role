@@ -1,0 +1,14 @@
+{{ jmx_exporter_log_path }}/{{ jmx_exporter_log_file }} {
+  daily
+  sharedscripts
+  notifempty
+  missingok
+  rotate 7
+  size 500M
+  compress
+  delaycompress
+  create 664 {{ jmx_exporter_user }} {{ jmx_exporter_group }}
+  postrotate
+        [ ! -f /run/jmx_exporter.pid ] || systemctl restart jmx_exporter.service
+  endscript
+}

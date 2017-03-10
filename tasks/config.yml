@@ -1,0 +1,21 @@
+---
+
+- name: JMX_EXPORTER | Copy exporter config
+  template:
+    src: "{{ item }}"
+    dest: "{{ jmx_exporter_conf_path }}/jmx_config.yml"
+    owner: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_group }}"
+    mode: 0640
+  with_fileglob:
+    - "{{ jmx_exporter_config_template_path }}/*"
+  notify:
+    - restart jmx_exporter
+
+- name: JMX_EXPORTER | Copy logrotate config
+  template:
+    src: logrotate.j2
+    dest: /etc/logrotate.d/jmx_exporter
+    mode: 0644
+    owner: root
+    group: root
