@@ -1,45 +1,16 @@
 ---
-- name: Ensure idealista repo
-  apt_repository:
-    filename: "{{ jmx_exporter_repo_file | default(omit) }}"
-    repo: "{{ jmx_exporter_repo }}"
-    update_cache: yes
 
-- name: Install jmx_exporter
-  apt:
-    pkg: jmx_prometheus_httpserver
-    state: latest
-    force: true
+- name: JMX_EXPORTER | Install
+  include: install.yml
   tags:
-    - skip_ansible_lint
+    - install
 
-- name: Ensure node exporter group
-  group:
-    name: "{{ jmx_exporter_group }}"
+- name: JMX_EXPORTER | Configure
+  include: config.yml
+  tags:
+    - configure
 
-- name: Ensure node exporter user
-  user:
-    name: "{{ jmx_exporter_user }}"
-    group: "{{ jmx_exporter_group }}"
-    home: /bin/false
-
-- name: Copy jmx_exporter config
-  copy:
-    src: "{{ jmx_exporter_config }}"
-    dest: "{{ jmx_exporter_config_file }}"
-    owner: "{{ jmx_exporter_user }}"
-    group: "{{ jmx_exporter_group }}"
-  notify: restart jmx_exporter
-
-- name: Copy jmx_exporter daemon
-  template:
-    src: jmx_exporter.service.j2
-    dest: /etc/systemd/system/jmx_exporter.service
-    mode: '0755'
-  notify: restart jmx_exporter
-
-- name: Dont enable jmx_exporter on boot by default
-  systemd:
-    name: jmx_exporter
-    enabled: "{{ jmx_exporter_enabled }}"
-    state: "{{ jmx_exporter_state|default(omit)}}"
+- name: JMX_EXPORTER | Service
+  include: service.yml
+  tags:
+    - service

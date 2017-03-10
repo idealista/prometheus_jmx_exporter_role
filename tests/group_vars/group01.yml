@@ -1,3 +1,7 @@
 ---
-jmx_exporter_enabled: yes
-jmx_exporter_state: started
+jmx_exporter_service_enabled: True
+jmx_exporter_service_state: started
+
+jmx_exporter_port: 9119
+
+jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/config"

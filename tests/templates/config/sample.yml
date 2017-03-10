@@ -1,0 +1,4 @@
+---
+hostPort: localhost:{{ jmx_exporter_internal_port }}
+rules:
+- pattern: ".*"
