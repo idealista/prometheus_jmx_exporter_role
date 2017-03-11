@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista-tech/prometheus_jmx_exporter-role/tree/develop)
+
+## [1.1.1](https://github.com/idealista-tech/prometheus_jmx_exporter-role/tree/1.1.1)
+[Full Changelog](https://github.com/idealista-tech/prometheus_jmx_exporter-role/compare/1.1.0...1.1.1)
 ### Added
 - *[PLATFORM-303](http://jira.sys.idealista/browse/PLATFORM-303) Exporter refactor* @jmonterrubio
 
