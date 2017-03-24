@@ -21,7 +21,10 @@ jmx_exporter_log_path: /var/log/jmx_exporter
 jmx_exporter_log_file: "jmx_exporter.log"
 jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config"
 
-
 # Port & path
 jmx_exporter_port: 9110
 jmx_exporter_internal_port: 5555
+
+# JVM
+jmx_exporter_xmx: 512m
+jmx_exporter_xms: 512m
