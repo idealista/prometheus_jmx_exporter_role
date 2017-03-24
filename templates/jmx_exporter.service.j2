@@ -10,8 +10,11 @@ Group={{ jmx_exporter_group }}
 RuntimeDirectory=jmx_exporter
 Environment='JAVA_OPTS=-Dcom.sun.management.jmxremote.port={{ jmx_exporter_internal_port }} \
     -Dcom.sun.management.jmxremote.authenticate=false \
+    -Dcom.sun.management.jmxremote=true \
+    -Dcom.sun.management.jmxremote.local.only=false \
     -Dcom.sun.management.jmxremote.ssl=false'
-ExecStart=/bin/sh -c "/usr/bin/java $JAVA_OPTS -jar {{ jmx_exporter_root_path }}/jmx_exporter.jar {{ jmx_exporter_port }} {{ jmx_exporter_conf_path }}/jmx_config.yml > {{ jmx_exporter_log_path }}/{{ jmx_exporter_log_file }} 2>&1"
+Environment='JAVA_MEM=-Xmx{{ jmx_exporter_xmx }} -Xms{{ jmx_exporter_xms }}'
+ExecStart=/bin/sh -c "/usr/bin/java $JAVA_OPTS $JAVA_MEM -jar {{ jmx_exporter_root_path }}/jmx_exporter.jar {{ jmx_exporter_port }} {{ jmx_exporter_conf_path }}/jmx_config.yml > {{ jmx_exporter_log_path }}/{{ jmx_exporter_log_file }} 2>&1"
 ExecStartPost=/bin/sh -c "echo $MAINPID > /run/jmx_exporter/jmx_exporter.pid"
 ExecReload=/bin/kill -HUP $MAINPID
 WorkingDirectory={{ jmx_exporter_root_path }}

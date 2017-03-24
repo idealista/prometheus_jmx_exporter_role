@@ -19,7 +19,7 @@
     name: "{{ jmx_exporter_user }}"
     group: "{{ jmx_exporter_group }}"
     system: yes
-    shell: /sbin/nologin
+    shell: /usr/sbin/nologin
     createhome: no
 
 - name: JMX_EXPORTER | Ensure skeleton paths
