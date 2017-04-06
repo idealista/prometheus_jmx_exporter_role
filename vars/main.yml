@@ -2,5 +2,5 @@
 
 jmx_exporter_required_libs: []
 
-jmx_exporter_bin_name: "jmx_prometheus_httpserver-{{ jmx_exporter_version }}-jar-with-dependencies.jar"
-jmx_exporter_url: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_httpserver/{{ jmx_exporter_version }}/{{ jmx_exporter_bin_name }}"
+jmx_exporter_bin_name: "jmx_prometheus_httpserver-{{ jmx_exporter_version }}-jmx_prometheus_httpserver.jar"
+jmx_exporter_url: "http://repository.int.sys.idealista:8081/nexus/service/local/repositories/thirdparty/content/io/prometheus/jmx/jmx_prometheus_httpserver/{{ jmx_exporter_version }}/{{ jmx_exporter_bin_name }}"

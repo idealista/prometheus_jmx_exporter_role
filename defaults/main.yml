@@ -1,7 +1,7 @@
 ---
 ## General
 
-jmx_exporter_version: 0.8
+jmx_exporter_version: 0.10.1
 
 ## Service options
 
@@ -23,6 +23,7 @@ jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/co
 
 # Port & path
 jmx_exporter_port: 9110
+jmx_exporter_metrics_path: metrics
 jmx_exporter_internal_port: 5555
 
 # JVM
