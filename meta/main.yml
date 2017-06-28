@@ -13,4 +13,4 @@ galaxy_info:
     - monitoring
 
 dependencies:
-  - java
+  - idealista.java-role
