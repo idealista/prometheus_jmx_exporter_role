@@ -35,7 +35,7 @@ def test_jmx_exporter_service(File, Service, Socket, AnsibleVars):
         assert Service("jmx_exporter").is_enabled
     if jmx_state in ["started", "restarted", "reloaded"]:
         assert Service("jmx_exporter").is_running
-        assert Socket("tcp://:::" + str(port)).is_listening
+        assert Socket("tcp://:::" + str(port)).is_listening or Socket("tcp://0.0.0.0:" + str(port)).is_listening
     else:
         assert not Service("jmx_exporter").is_running
-        assert not Socket("tcp://:::" + str(port)).is_listening
+        assert not Socket("tcp://:::" + str(port)).is_listening or Socket("tcp://0.0.0.0:" + str(port)).is_listening

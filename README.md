@@ -1,5 +1,7 @@
 ![Logo](logo.gif)
 
+[![Build Status](https://travis-ci.org/idealista/prometheus_jmx_exporter-role.png)](https://travis-ci.org/idealista/prometheus_jmx_exporter-role)
+
 # Prometheus JMX Exporter Ansible role
 
 This ansible role installs a Prometheus Node Exporter in a debian environment.
