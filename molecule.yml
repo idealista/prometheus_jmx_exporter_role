@@ -62,8 +62,10 @@ docker:
       ansible_groups:
         - group01
 
-      image: python
-      image_version: 2.7.13-jessie
+      dockerfile: tests/Dockerfile
+      image: jmxexporter
+      image_version: latest
+
       # All these parameters are needed for Docker testing with systemd
       privileged: True
       cap_add:
@@ -80,4 +82,4 @@ verifier:
     # fixture in tests/test_ansible.yml won't work and neither will testinfra
     # find the containers
     connection: ansible
-ansible-inventory: .molecule/ansible_inventory
+    ansible-inventory: .molecule/ansible_inventory
