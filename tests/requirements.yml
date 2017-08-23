@@ -1,4 +1,2 @@
-- src: https://github.com/idealista/java-role
-  scm: git
+- src: idealista.java-role
   version: 1.2.0
-  name: java
