@@ -28,3 +28,5 @@ jmx_exporter_internal_port: 5555
 # JVM
 jmx_exporter_xmx: 512m
 jmx_exporter_xms: 512m
+## This should be true if you want to debug with Vagrant and Jconsole
+jmx_rmi: False
