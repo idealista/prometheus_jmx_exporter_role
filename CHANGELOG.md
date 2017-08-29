@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ### Added
 - *[#7](https://github.com/idealista/prometheus_jmx_exporter-role/issues/7) Add TravisCI and Ansible Galaxy integration* @jnogol
 - *[#8](https://github.com/idealista/prometheus_jmx_exporter-role/issues/8) Add debug with Vagrant and Jconsole* @jnogol
+- *[#12](https://github.com/idealista/prometheus_jmx_exporter-role/issues/12) Copy only one config file to the exporter in case there are more than one* @jnogol
 
 ## [1.2.0](https://github.com/idealista-tech/prometheus_jmx_exporter-role/tree/1.2.0)
 [Full Changelog](https://github.com/idealista-tech/prometheus_jmx_exporter-role/compare/1.1.1...1.2.0)
