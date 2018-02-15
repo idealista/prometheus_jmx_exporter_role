@@ -60,6 +60,7 @@ docker:
       ansible_groups:
         - group01
       image: idealista/java-debian-ansible
+      image_version: latest
 
       # All these parameters are needed for Docker testing with systemd
       privileged: True
