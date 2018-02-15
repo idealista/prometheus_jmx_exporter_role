@@ -9,6 +9,6 @@
   delaycompress
   create 664 {{ jmx_exporter_user }} {{ jmx_exporter_group }}
   postrotate
-        [ ! -f /run/jmx_exporter.pid ] || systemctl restart jmx_exporter.service
+        [ ! -f /run/jmx_exporter/jmx_exporter.pid ] || systemctl restart jmx_exporter.service
   endscript
 }
