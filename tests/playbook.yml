@@ -1,4 +1,13 @@
 ---
 - hosts: all
   roles:
-    - role: prometheus_jmx_exporter-role
+    - java
+    - prometheus_jmx_exporter-role
+  post_tasks:
+    - name: Ensure test packages
+      apt:
+        name: "{{ item }}"
+        update_cache: yes
+        cache_valid_time: 3600
+      with_items:
+        - net-tools
