@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter-role/tree/develop)
+
+## [1.3.1](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.3.1)
+[Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.3.0...1.3.1)
 ### Fixed
 - *[#15](https://github.com/idealista/prometheus_jmx_exporter-role/issues/15) Fix logrotate script problem* @jnogol
 
