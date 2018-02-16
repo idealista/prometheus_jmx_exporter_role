@@ -32,23 +32,21 @@ ansible:
 # configuration options for the internal call to vagrant
 vagrant:
   # molecules --platform option will look for these names
-  raw_config_args:
-  - "landrush.enabled = true"
-  - "landrush.tld = ''"
-  - "landrush.guest_redirect_dns = false"
   platforms:
-    - name: Debian
+    - name: Debian9
+      box: debian/stretch64
+    - name: Debian8
       box: debian/jessie64
 
   providers:
     - name: virtualbox
       type: virtualbox
       options:
-        memory: 128
+        memory: 1024
         cpus: 1
 
   instances:
-    - name: jmxExporter
+    - name: jmxexporter
       ansible_groups:
         - group01
       interfaces:
@@ -58,12 +56,10 @@ vagrant:
 
 docker:
   containers:
-    - name: jmxExporter
+    - name: jmxexporter
       ansible_groups:
         - group01
-
-      dockerfile: tests/Dockerfile
-      image: jmxexporter
+      image: idealista/java-debian-ansible
       image_version: latest
 
       # All these parameters are needed for Docker testing with systemd
