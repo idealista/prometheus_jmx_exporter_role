@@ -11,6 +11,7 @@ RuntimeDirectory=jmx_exporter
 Environment='JAVA_OPTS=-Dcom.sun.management.jmxremote.port={{ jmx_exporter_internal_port }} \
 {% if jmx_rmi %}
     -Dcom.sun.management.jmxremote.rmi.port={{ jmx_exporter_internal_port }} \
+    -Djava.rmi.server.hostname={{ inventory_hostname }} \
 {% endif %}
     -Dcom.sun.management.jmxremote.authenticate=false \
     -Dcom.sun.management.jmxremote=true \

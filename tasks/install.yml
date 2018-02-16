@@ -1,13 +1,5 @@
 ---
 
-- name: JMX_EXPORTER | Installing dependencies
-  apt:
-    pkg: "{{ item }}"
-    state: present
-  with_items: "{{ jmx_exporter_required_libs }}"
-  tags:
-    skip_ansible_lint
-
 - name: JMX_EXPORTER | Ensure jmx_exporter group
   group:
     name: "{{ jmx_exporter_group }}"
@@ -33,17 +25,10 @@
     - "{{ jmx_exporter_conf_path }}"
     - "{{ jmx_exporter_log_path }}"
 
-#- name: JMX_EXPORTER | Check jmx_exporter version
-#  command: jmx_exporter -version
-#  register: jmx_exporter_check
-#  changed_when: false
-#  ignore_errors: true
-
 - name: JMX_EXPORTER | Download binary
   get_url:
     url: "{{ jmx_exporter_url }}"
     dest: /tmp
-  #when: 'jmx_exporter_force_reinstall or jmx_exporter_check|failed or "jmx_exporter, version {{ jmx_exporter_version }}" not in jmx_exporter_check.stderr'
 
 - name: JMX_EXPORTER | Copy binary
   copy:
@@ -53,7 +38,6 @@
     group: "{{ jmx_exporter_group }}"
     remote_src: True
     mode: 0755
-  #when: 'jmx_exporter_force_reinstall or jmx_exporter_check|failed or "jmx_exporter, version {{ jmx_exporter_version }}" not in jmx_exporter_check.stderr'
   notify: restart jmx_exporter
 
 - name: JMX_EXPORTER | Link binary

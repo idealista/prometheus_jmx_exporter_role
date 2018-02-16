@@ -31,6 +31,10 @@ ansible:
 
 # configuration options for the internal call to vagrant
 vagrant:
+  raw_config_args:
+  - "landrush.enabled = true"
+  - "landrush.tld = 'vm'"
+
   # molecules --platform option will look for these names
   platforms:
     - name: Debian9
@@ -42,13 +46,13 @@ vagrant:
     - name: virtualbox
       type: virtualbox
       options:
-        memory: 1024
+        memory: 512
         cpus: 1
 
   instances:
-    - name: jmxexporter
+    - name: jmxexporter.vm
       ansible_groups:
-        - group01
+        - jmxexporter
       interfaces:
         - network_name: private_network
           type: dhcp
