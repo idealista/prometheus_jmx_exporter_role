@@ -4,4 +4,4 @@ jmx_exporter_service_state: started
 
 jmx_exporter_port: 9119
 
-jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/config"
+jmx_rmi: True
