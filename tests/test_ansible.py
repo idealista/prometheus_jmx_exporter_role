@@ -8,7 +8,7 @@ def AnsibleDefaults(Ansible):
 
 @pytest.fixture()
 def AnsibleVars(Ansible):
-    return Ansible("include_vars", "tests/group_vars/group01.yml")["ansible_facts"]
+    return Ansible("include_vars", "tests/group_vars/jmxexporter.yml")["ansible_facts"]
 
 
 def test_jmx_exporter_user(User, Group, AnsibleDefaults):
