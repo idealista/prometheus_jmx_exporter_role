@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter-role/tree/develop)
+
+## [1.5.0](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.5.0)
+[Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.4.0...1.5.0)
 ### Added
 - *[#23](https://github.com/idealista/prometheus_jmx_exporter-role/issues/23) JMX Exporter classpath is now configurable* @dortegau
 
