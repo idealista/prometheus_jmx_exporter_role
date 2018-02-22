@@ -20,10 +20,13 @@ Environment='JAVA_OPTS=-Djava.awt.headless=true \
 {% endif %}'
 
 Environment='JAVA_MEM=-Xmx{{ jmx_exporter_xmx }} -Xms{{ jmx_exporter_xms }}'
-ExecStart=/bin/sh -c "/usr/bin/java $JAVA_OPTS $JAVA_MEM -jar {{ jmx_exporter_root_path }}/jmx_exporter.jar {{ jmx_exporter_port }} {{ jmx_exporter_conf_path }}/jmx_config.yml > {{ jmx_exporter_log_path }}/{{ jmx_exporter_log_file }} 2>&1"
+ExecStart=/bin/sh -c "/usr/bin/java $JAVA_OPTS $JAVA_MEM \
+                      -cp {{ ([jmx_exporter_jar_path] + jmx_exporter_classpath_entries)|join(":") }} {{ jmx_exporter_main_class }} \
+                      {{ jmx_exporter_port }} {{ jmx_exporter_conf_path }} \
+                      > {{ jmx_exporter_log_path }} 2>&1"
 ExecStartPost=/bin/sh -c "echo $MAINPID > /run/jmx_exporter/jmx_exporter.pid"
 ExecReload=/bin/kill -HUP $MAINPID
-WorkingDirectory={{ jmx_exporter_root_path }}
+WorkingDirectory={{ jmx_exporter_root_directory }}
 PIDFile=/run/jmx_exporter/jmx_exporter.pid
 KillSignal=SIGTERM
 SuccessExitStatus=143
