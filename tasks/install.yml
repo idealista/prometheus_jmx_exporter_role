@@ -43,7 +43,7 @@
 - name: JMX_EXPORTER | Link binary
   file:
     src: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_bin_name }}"
-    dest: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_jar_file }}"
+    dest: "{{ jmx_exporter_jar_path }}"
     state: link
 
 - name: JMX_EXPORTER | Copy Daemon script
