@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter-role/tree/develop)
+### Added
+- *[#23](https://github.com/idealista/prometheus_jmx_exporter-role/issues/23) JMX Exporter classpath is now configurable* @dortegau
 
 ## [1.4.0](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.4.0)
 [Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.3.1...1.4.0)
@@ -35,8 +37,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [1.1.1](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.1.1)
 [Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.1.0...1.1.1)
 ### Added
-- *[PLATFORM-303](http://jira.sys.idealista/browse/PLATFORM-303) Exporter refactor* @jmonterrubio
+- *Exporter refactor* @jmonterrubio
 
 ## [1.1.0](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.1.0)
 ### Added
-- *[PLATFORM-162](http://jira.sys.idealista/browse/PLATFORM-162) Utilizar systemd con ansible, reducir el número de métricas que generamos para java y tomcat*
+- *Using Systemd, decreasing the number of metrics generated for Java & Tomcat*
