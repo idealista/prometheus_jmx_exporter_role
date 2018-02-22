@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter-role/tree/develop)
 
+## [1.4.0](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.4.0)
+[Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.3.1...1.4.0)
+### Added
+- *[#19](https://github.com/idealista/prometheus_jmx_exporter-role/issues/19) Upgrade to install latest jmx_exporter version (0.2.0)* @dortegau
+
 ## [1.3.1](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.3.1)
 [Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.3.0...1.3.1)
 ### Fixed
