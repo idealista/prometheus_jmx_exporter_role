@@ -18,7 +18,7 @@ def test_jmx_exporter_user(User, Group, AnsibleDefaults):
 
 
 def test_jmx_exporter_conf(File, AnsibleDefaults):
-    jmx_exporter_config = File(AnsibleDefaults["jmx_exporter_conf_path"] + "/jmx_config.yml")
+    jmx_exporter_config = File(AnsibleDefaults["jmx_exporter_conf_path"])
     assert jmx_exporter_config.is_file
     assert jmx_exporter_config.group == AnsibleDefaults["jmx_exporter_group"]
     assert jmx_exporter_config.user == AnsibleDefaults["jmx_exporter_user"]

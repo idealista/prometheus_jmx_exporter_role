@@ -3,7 +3,7 @@
 - name: JMX_EXPORTER | Copy exporter config
   template:
     src: "{{ item }}"
-    dest: "{{ jmx_exporter_conf_path }}/jmx_config.yml"
+    dest: "{{ jmx_exporter_conf_directory }}"
     owner: "{{ jmx_exporter_user }}"
     group: "{{ jmx_exporter_group }}"
     mode: 0640

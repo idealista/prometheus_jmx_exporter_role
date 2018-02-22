@@ -15,13 +15,23 @@ jmx_exporter_service_enabled: True
 jmx_exporter_service_state: started
 
 # Files & Paths
-jmx_exporter_root_path: /opt/jmx_exporter
-jmx_exporter_conf_path: /etc/jmx_exporter
-jmx_exporter_log_path: /var/log/jmx_exporter
+jmx_exporter_root_directory: /opt/jmx_exporter
+
+jmx_exporter_jar_path: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_jar_file }}"
+
+jmx_exporter_conf_directory: /etc/jmx_exporter
+jmx_exporter_conf_file: "jmx_config.yml"
+jmx_exporter_conf_path: "{{ jmx_exporter_conf_directory }}/{{ jmx_exporter_conf_file }}"
+
+jmx_exporter_log_directory: /var/log/jmx_exporter
 jmx_exporter_log_file: "jmx_exporter.log"
+jmx_exporter_log_path: "{{ jmx_exporter_log_directory }}/{{ jmx_exporter_log_file }}"
+
+jmx_exporter_external_libraries_paths: []
+
 jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config"
 
-# Port & path
+# Ports
 jmx_exporter_port: 9110
 jmx_exporter_internal_port: 5555
 
