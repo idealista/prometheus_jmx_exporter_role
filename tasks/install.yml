@@ -18,7 +18,7 @@
   file:
     dest: "{{ item }}"
     owner: "{{ jmx_exporter_user }}"
-    group: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_group }}"
     state: directory
   with_items:
     - "{{ jmx_exporter_root_directory }}"
