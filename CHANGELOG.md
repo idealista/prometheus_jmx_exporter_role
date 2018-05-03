@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter-role/tree/develop)
+
+## [1.5.1](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.5.1)
+[Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.5.0...1.5.1)
 ### Fixed
 - *[#26](https://github.com/idealista/prometheus_jmx_exporter-role/issues/26) Group variable is not used when skeleton paths are created* @sorobon
 
