@@ -20,13 +20,11 @@ platforms:
     command: '/lib/systemd/systemd'
 provisioner:
   name: ansible
-  converge: ../resources/playbook.yml
   lint:
     name: ansible-lint
 scenario:
   name: custom_configuration
 verifier:
   name: goss
-  directory: ../resources/tests/
   lint:
     name: yamllint
