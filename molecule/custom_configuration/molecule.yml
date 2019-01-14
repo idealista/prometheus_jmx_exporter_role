@@ -1,0 +1,32 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+  options:
+    config-file: molecule/yaml-lint.yml
+platforms:
+  - name: jmxexporter
+    groups:
+      - jmxexporter
+    image: geerlingguy/docker-debian9-ansible:latest
+    privileged: true
+    capabilities:
+      - SYS_ADMIN
+    volumes:
+      - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    command: '/lib/systemd/systemd'
+provisioner:
+  name: ansible
+  converge: ../resources/playbook.yml
+  lint:
+    name: ansible-lint
+scenario:
+  name: custom_configuration
+verifier:
+  name: goss
+  directory: ../resources/tests/
+  lint:
+    name: yamllint

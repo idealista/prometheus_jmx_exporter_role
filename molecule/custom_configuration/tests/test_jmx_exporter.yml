@@ -1,0 +1,14 @@
+---
+http:
+  http://localhost:{{ jmx_exporter_port }}/:
+    status: 200
+
+group:
+  "{{ jmx_exporter_group }}":
+    exists: true
+
+user:
+  "{{ jmx_exporter_user }}":
+    exists: true
+    groups:
+      - "{{ jmx_exporter_group }}"
