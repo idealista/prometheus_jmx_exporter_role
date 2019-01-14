@@ -1,0 +1,12 @@
+---
+extends: default
+
+rules:
+  braces: disable
+  brackets: disable
+  line-length: disable
+
+ignore: |
+  tests/
+  .molecule/
+  .travis.yml

@@ -5,4 +5,4 @@
     name: jmx_exporter
     state: "{{ jmx_exporter_service_state }}"
     enabled: "{{ jmx_exporter_service_enabled }}"
-    daemon_reload: yes
+    daemon_reload: true
