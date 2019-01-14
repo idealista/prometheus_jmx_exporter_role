@@ -1,16 +1,16 @@
 ---
 
 - name: JMX_EXPORTER | Install
-  include: install.yml
+  import_tasks: install.yml
   tags:
     - install
 
 - name: JMX_EXPORTER | Configure
-  include: config.yml
+  import_tasks: config.yml
   tags:
     - configure
 
 - name: JMX_EXPORTER | Service
-  include: service.yml
+  import_tasks: service.yml
   tags:
     - service

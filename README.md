@@ -23,7 +23,7 @@ These instructions will get you a copy of the role for your ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.3.1.0 version installed.
+Ansible 2.4.5.0 version installed.
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant](https://www.vagrantup.com/) as driver (with [vagrant-hostmanager](https://github.com/devopsgroup-io/vagrant-hostmanager)) and [VirtualBox](https://www.virtualbox.org/) as provider.
@@ -32,7 +32,7 @@ For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant
 
 Create or add to your roles dependency file (e.g requirements.yml):
 
-```
+```yml
 - src: idealista.prometheus_jmx_exporter-role
   version: 1.0.0
   name: prometheus_jmx_exporter
@@ -40,13 +40,13 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 Install the role with ansible-galaxy command:
 
-```
+```sh
 ansible-galaxy install -p roles -r requirements.yml -f
 ```
 
 Use in a playbook:
 
-```
+```yml
 ---
 - hosts: someserver
   roles:
@@ -59,13 +59,14 @@ Look to the [defaults](defaults/main.yml) properties file to see the possible co
 
 ## Testing
 
-```
-molecule test
+```sh
+pipenv install -r test-requirements.txt --python 2.7
+pipenv run molecule test -s default
 ```
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.3.1.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.4.5.0-green.svg)
 
 ## Versioning
 
@@ -75,15 +76,15 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 ## Authors
 
-* **Idealista** - *Work with* - [idealista-tech](https://github.com/idealista)
+* **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
 See also the list of [contributors](https://github.com/idealista/prometheus_jmx_exporter-role/contributors) who participated in this project.
 
 ## License
 
-![Apache 2.0 Licence](https://img.shields.io/hexpm/l/plug.svg)
+![Apache 2.0 License](https://img.shields.io/hexpm/l/plug.svg)
 
-This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license - see the [LICENSE.txt](LICENSE.txt) file for details.
+This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
