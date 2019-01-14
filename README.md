@@ -60,8 +60,8 @@ Look to the [defaults](defaults/main.yml) properties file to see the possible co
 ## Testing
 
 ```sh
-pipenv
-molecule test -s default
+pipenv install -r test-requirements.txt --python 2.7
+pipenv run molecule test -s default
 ```
 
 ## Built With
