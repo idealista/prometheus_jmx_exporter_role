@@ -5,8 +5,14 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter-role/tree/develop)
+### Added
+- *[#29](https://github.com/idealista/prometheus_jmx_exporter-role/issues/29) Add way to provide custom configuration* @jnogol
+
 ### Changed
 - *[#30](https://github.com/idealista/prometheus_jmx_exporter-role/issues/30) Migrate tests to Molecule v2.19 and Goss v0.3.6. Ansible minimum version 2.4.5.0* @jnogol
+
+### Deleted
+- *Delete logrotate configuration* @jnogol
 
 ## [1.5.1](https://github.com/idealista/prometheus_jmx_exporter-role/tree/1.5.1)
 [Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.5.0...1.5.1)

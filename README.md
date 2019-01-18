@@ -57,6 +57,14 @@ Use in a playbook:
 
 Look to the [defaults](defaults/main.yml) properties file to see the possible configuration properties.
 
+### Providing custom configuration
+
+In order to provide custom JMX Exporter configuration, `jmx_exporter_config_template_path` and make it point to the folder in your playbook with the configuration file. For example: 
+
+```yml
+jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config"
+```
+
 ## Testing
 
 ```sh
