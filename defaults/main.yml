@@ -32,7 +32,7 @@ jmx_exporter_classpath_entries: []
 #  - jar_path_2
 #  - ...
 
-jmx_exporter_config_template_path: "templates/jmx_exporter/config"
+jmx_exporter_config_template_path: "templates/jmx_exporter/config/jmx_config.yml"
 
 # Ports
 jmx_exporter_port: 9110

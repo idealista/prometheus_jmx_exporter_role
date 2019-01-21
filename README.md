@@ -65,6 +65,8 @@ In order to provide custom JMX Exporter configuration, `jmx_exporter_config_temp
 jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config"
 ```
 
+If you are using this role since version 1.x, you may check our [migration guide](https://github.com/idealista/prometheus_jmx_exporter-role/wiki#v1x-to-v2-migration-guide)
+
 ## Testing
 
 ```sh
