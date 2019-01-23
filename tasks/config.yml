@@ -2,22 +2,10 @@
 
 - name: JMX_EXPORTER | Copy exporter config
   template:
-    src: "{{ item }}"
+    src: "{{ jmx_exporter_config_template_path }}"
     dest: "{{ jmx_exporter_conf_path }}"
     owner: "{{ jmx_exporter_user }}"
     group: "{{ jmx_exporter_group }}"
     mode: 0640
-  # This will only copy the file in case it matches host's group name
-  when: item | basename | splitext | first in group_names
-  with_fileglob:
-    - "{{ jmx_exporter_config_template_path }}/*"
   notify:
     - restart jmx_exporter
-
-- name: JMX_EXPORTER | Copy logrotate config
-  template:
-    src: logrotate.j2
-    dest: /etc/logrotate.d/jmx_exporter
-    mode: 0644
-    owner: root
-    group: root

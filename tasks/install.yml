@@ -3,16 +3,16 @@
 - name: JMX_EXPORTER | Ensure jmx_exporter group
   group:
     name: "{{ jmx_exporter_group }}"
-    system: yes
+    system: true
     state: present
 
 - name: JMX_EXPORTER | Ensure jmx_exporter user
   user:
     name: "{{ jmx_exporter_user }}"
     group: "{{ jmx_exporter_group }}"
-    system: yes
+    system: true
     shell: /usr/sbin/nologin
-    createhome: no
+    createhome: false
 
 - name: JMX_EXPORTER | Ensure skeleton paths
   file:
@@ -36,7 +36,7 @@
     dest: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_bin_name }}"
     owner: "{{ jmx_exporter_user }}"
     group: "{{ jmx_exporter_group }}"
-    remote_src: True
+    remote_src: true
     mode: 0755
   notify: restart jmx_exporter
 

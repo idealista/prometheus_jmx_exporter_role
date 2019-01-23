@@ -1,7 +1,7 @@
 ---
 ## General
 
-jmx_exporter_version: 0.2.0
+jmx_exporter_version: 0.3.1
 
 ## Service options
 
@@ -10,7 +10,7 @@ jmx_exporter_user: prometheus
 jmx_exporter_group: prometheus
 
 # start on boot
-jmx_exporter_service_enabled: True
+jmx_exporter_service_enabled: true
 # current state: started, stopped
 jmx_exporter_service_state: started
 
@@ -32,7 +32,7 @@ jmx_exporter_classpath_entries: []
 #  - jar_path_2
 #  - ...
 
-jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config"
+jmx_exporter_config_template_path: "templates/jmx_exporter/config/jmx_config.yml"
 
 # Ports
 jmx_exporter_port: 9110
@@ -43,4 +43,4 @@ jmx_exporter_xmx: 32m
 jmx_exporter_xms: 32m
 
 ## This should be true if you want to debug with Vagrant and Jconsole
-jmx_rmi: False
+jmx_rmi: false
