@@ -5,6 +5,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter-role/tree/develop)
+
+## [2.0.0](https://github.com/idealista/prometheus_jmx_exporter-role/tree/2.0.0)
+[Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.5.1...2.0.0)
 ### Added
 - *[#29](https://github.com/idealista/prometheus_jmx_exporter-role/issues/29) Add way to provide custom configuration* @jnogol
 
