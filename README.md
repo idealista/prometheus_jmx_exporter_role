@@ -59,13 +59,13 @@ Look to the [defaults](defaults/main.yml) properties file to see the possible co
 
 ### Providing custom configuration
 
-In order to provide custom JMX Exporter configuration, `jmx_exporter_config_template_path` and make it point to the folder in your playbook with the configuration file. For example: 
+Starting from role version 2.x.x, in order to provide custom JMX Exporter configuration, set `jmx_exporter_config_template_path` to the template in your playbook that is the configuration file. For example: 
 
 ```yml
-jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config"
+jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config/jmx_config.yml"
 ```
 
-If you are using this role since version 1.x, you may check our [migration guide](https://github.com/idealista/prometheus_jmx_exporter-role/wiki#v1x-to-v2-migration-guide)
+In previous versions, this variable pointed to a **folder** instead of a **file**. If you are using this role since version 1.x, you may check our [migration guide](https://github.com/idealista/prometheus_jmx_exporter-role/wiki#v1x-to-v2-migration-guide)
 
 ## Testing
 
