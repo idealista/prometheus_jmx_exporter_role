@@ -24,10 +24,10 @@ ExecStart=/bin/sh -c "/usr/bin/java $JAVA_OPTS $JAVA_MEM \
                       -cp {{ ([jmx_exporter_jar_path] + jmx_exporter_classpath_entries)|join(":") }} {{ jmx_exporter_main_class }} \
                       {{ jmx_exporter_port }} {{ jmx_exporter_conf_path }} \
                       > {{ jmx_exporter_log_path }} 2>&1"
-ExecStartPost=/bin/sh -c "echo $MAINPID > /run/jmx_exporter/jmx_exporter.pid"
+ExecStartPost=/bin/sh -c "echo $MAINPID > {{ jmx_exporter_run_pidfile }}"
 ExecReload=/bin/kill -HUP $MAINPID
 WorkingDirectory={{ jmx_exporter_root_directory }}
-PIDFile=/run/jmx_exporter/jmx_exporter.pid
+PIDFile={{ jmx_exporter_run_pidfile }}
 KillSignal=SIGTERM
 SuccessExitStatus=143
 

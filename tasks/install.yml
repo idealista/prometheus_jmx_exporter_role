@@ -24,6 +24,7 @@
     - "{{ jmx_exporter_root_directory }}"
     - "{{ jmx_exporter_conf_directory }}"
     - "{{ jmx_exporter_log_directory }}"
+    - "{{ jmx_exporter_run_directory }}"
 
 - name: JMX_EXPORTER | Download binary
   get_url:

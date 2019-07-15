@@ -27,6 +27,9 @@ jmx_exporter_log_directory: /var/log/jmx_exporter
 jmx_exporter_log_file: "jmx_exporter.log"
 jmx_exporter_log_path: "{{ jmx_exporter_log_directory }}/{{ jmx_exporter_log_file }}"
 
+jmx_exporter_run_directory: /run/jmx_exporter
+jmx_exporter_run_pidfile: "{{ jmx_exporter_run_directory }}/jmx_exporter.pid"
+
 jmx_exporter_classpath_entries: []
 #  - jar_path_1
 #  - jar_path_2
