@@ -1,7 +1,11 @@
 ---
 ## General
 
-jmx_exporter_version: 0.3.1
+jmx_exporter_version: "0.12.0"
+# install as jvm agent or standalone service
+jmx_exporter_run_as_service: true
+# create jmx_exporter user & group
+jmx_exporter_manage_user_group: true
 
 ## Service options
 

@@ -5,6 +5,8 @@
     name: "{{ jmx_exporter_group }}"
     system: true
     state: present
+  when: 
+  - jmx_exporter_manage_user_group
 
 - name: JMX_EXPORTER | Ensure jmx_exporter user
   user:
@@ -13,8 +15,10 @@
     system: true
     shell: /usr/sbin/nologin
     createhome: false
+  when: 
+  - jmx_exporter_manage_user_group
 
-- name: JMX_EXPORTER | Ensure skeleton paths
+- name: JMX_EXPORTER | Ensure skeleton paths 1/2 (Root & Config)
   file:
     dest: "{{ item }}"
     owner: "{{ jmx_exporter_user }}"
@@ -23,14 +27,24 @@
   with_items:
     - "{{ jmx_exporter_root_directory }}"
     - "{{ jmx_exporter_conf_directory }}"
+
+- name: JMX_EXPORTER | Ensure skeleton paths 2/2 (Log)
+  file:
+    dest: "{{ item }}"
+    owner: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_group }}"
+    state: directory
+  with_items:
     - "{{ jmx_exporter_log_directory }}"
+  when: 
+  - jmx_exporter_run_as_service
 
 - name: JMX_EXPORTER | Download binary
   get_url:
     url: "{{ jmx_exporter_url }}"
     dest: /tmp
 
-- name: JMX_EXPORTER | Copy binary
+- name: JMX_EXPORTER | Copy binary (Service Mode)
   copy:
     src: "/tmp/{{ jmx_exporter_bin_name }}"
     dest: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_bin_name }}"
@@ -39,6 +53,19 @@
     remote_src: true
     mode: 0755
   notify: restart jmx_exporter
+  when: 
+  - jmx_exporter_run_as_service
+
+- name: JMX_EXPORTER | Copy binary (Agent Mode)
+  copy:
+    src: "/tmp/{{ jmx_exporter_bin_name }}"
+    dest: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_bin_name }}"
+    owner: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_group }}"
+    remote_src: true
+    mode: 0755
+  when: 
+  - not jmx_exporter_run_as_service
 
 - name: JMX_EXPORTER | Link binary
   file:
@@ -52,3 +79,5 @@
     dest: /etc/systemd/system/jmx_exporter.service
     mode: 0644
   notify: restart jmx_exporter
+  when: 
+  - jmx_exporter_run_as_service
