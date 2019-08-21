@@ -39,10 +39,19 @@
   when: 
   - jmx_exporter_run_as_service
 
-- name: JMX_EXPORTER | Download binary
+- name: JMX_EXPORTER | Download binary (Service Mode)
   get_url:
     url: "{{ jmx_exporter_url }}"
     dest: /tmp
+  when: 
+  - jmx_exporter_run_as_service
+
+- name: JMX_EXPORTER | Download binary (Agent Mode)
+  get_url:
+    url: "{{ jmx_exporter_agent_url }}"
+    dest: /tmp
+  when: 
+  - not jmx_exporter_run_as_service
 
 - name: JMX_EXPORTER | Copy binary (Service Mode)
   copy:
@@ -58,8 +67,8 @@
 
 - name: JMX_EXPORTER | Copy binary (Agent Mode)
   copy:
-    src: "/tmp/{{ jmx_exporter_bin_name }}"
-    dest: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_bin_name }}"
+    src: "/tmp/{{ jmx_exporter_agent_bin_name }}"
+    dest: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_agent_bin_name }}"
     owner: "{{ jmx_exporter_user }}"
     group: "{{ jmx_exporter_group }}"
     remote_src: true
@@ -67,11 +76,21 @@
   when: 
   - not jmx_exporter_run_as_service
 
-- name: JMX_EXPORTER | Link binary
+- name: JMX_EXPORTER | Link binary (Service Mode)
   file:
     src: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_bin_name }}"
     dest: "{{ jmx_exporter_jar_path }}"
     state: link
+  when: 
+  - jmx_exporter_run_as_service
+
+- name: JMX_EXPORTER | Link binary (Agent Mode)
+  file:
+    src: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_agent_bin_name }}"
+    dest: "{{ jmx_exporter_jar_path }}"
+    state: link
+  when: 
+  - not jmx_exporter_run_as_service
 
 - name: JMX_EXPORTER | Copy Daemon script
   template:
