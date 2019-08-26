@@ -1,5 +1,4 @@
 ---
-
 - name: JMX_EXPORTER | Copy exporter config (Service Mode)
   template:
     src: "{{ jmx_exporter_config_template_path }}"
@@ -9,8 +8,8 @@
     mode: 0640
   notify:
     - restart jmx_exporter
-  when: 
-  - jmx_exporter_run_as_service
+  when:
+    - jmx_exporter_run_as_service
 
 - name: JMX_EXPORTER | Copy exporter config (Agent Mode)
   template:
@@ -19,5 +18,5 @@
     owner: "{{ jmx_exporter_user }}"
     group: "{{ jmx_exporter_group }}"
     mode: 0640
-  when: 
-  - not jmx_exporter_run_as_service
+  when:
+    - not jmx_exporter_run_as_service
