@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter-role/tree/develop)
+### Added
+- *[#37](https://github.com/idealista/prometheus_jmx_exporter-role/issues/37) Add way to install as embedded agent* @soloradish
 
 ## [2.0.0](https://github.com/idealista/prometheus_jmx_exporter-role/tree/2.0.0)
 [Full Changelog](https://github.com/idealista/prometheus_jmx_exporter-role/compare/1.5.1...2.0.0)
