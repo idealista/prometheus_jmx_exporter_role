@@ -1,6 +1,6 @@
 ![Logo](logo.gif)
 
-[![Build Status](https://travis-ci.org/idealista/prometheus_jmx_exporter-role.png)](https://travis-ci.org/idealista/prometheus_jmx_exporter-role)
+[![Build Status](https://travis-ci.org/idealista/prometheus_jmx_exporter_role.png)](https://travis-ci.org/idealista/prometheus_jmx_exporter_role)
 
 # Prometheus JMX Exporter Ansible role
 
@@ -33,7 +33,7 @@ For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```yml
-- src: idealista.prometheus_jmx_exporter-role
+- src: idealista.prometheus_jmx_exporter_role
   version: 1.0.0
   name: prometheus_jmx_exporter
 ```
@@ -65,7 +65,7 @@ Starting from role version 2.x.x, in order to provide custom JMX Exporter config
 jmx_exporter_config_template_path: "{{ playbook_dir }}/templates/jmx_exporter/config/jmx_config.yml"
 ```
 
-In previous versions, this variable pointed to a **folder** instead of a **file**. If you are using this role since version 1.x, you may check our [migration guide](https://github.com/idealista/prometheus_jmx_exporter-role/wiki#v1x-to-v2-migration-guide)
+In previous versions, this variable pointed to a **folder** instead of a **file**. If you are using this role since version 1.x, you may check our [migration guide](https://github.com/idealista/prometheus_jmx_exporter_role/wiki#v1x-to-v2-migration-guide)
 
 ## Testing
 
@@ -80,7 +80,7 @@ pipenv run molecule test -s default
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/prometheus_jmx_exporter-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/prometheus_jmx_exporter_role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -88,7 +88,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/prometheus_jmx_exporter-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/prometheus_jmx_exporter_role/contributors) who participated in this project.
 
 ## License
 
