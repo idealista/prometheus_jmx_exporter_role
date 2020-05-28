@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter_role/tree/develop)
 
+### Added
+- *[#44](https://github.com/idealista/prometheus_jmx_exporter_role/issues/44) Upgraded to ansible 2.9, molecule 3 and goss 0.3.11* @frantsao
+
 ## [2.0.0](https://github.com/idealista/prometheus_jmx_exporter_role/tree/2.0.0)
 [Full Changelog](https://github.com/idealista/prometheus_jmx_exporter_role/compare/1.5.1...2.0.0)
 ### Added

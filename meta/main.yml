@@ -2,13 +2,15 @@
 
 galaxy_info:
   company: Idealista S.A.U.
+  author: idealista
   description: Prometheus JMX exporter
-  min_ansible_version: 2.4.5.0
+  min_ansible_version: 2.9.0.0
   license: Apache 2.0
   platforms:
     - name: Debian
       versions:
         - jessie
         - stretch
-  categories:
+        - buster
+  galaxy_tags:
     - monitoring
