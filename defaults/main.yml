@@ -23,9 +23,12 @@ jmx_exporter_conf_directory: /etc/jmx_exporter
 jmx_exporter_conf_file: "jmx_config.yml"
 jmx_exporter_conf_path: "{{ jmx_exporter_conf_directory }}/{{ jmx_exporter_conf_file }}"
 
-jmx_exporter_log_directory: /var/log/jmx_exporter
-jmx_exporter_log_file: "jmx_exporter.log"
-jmx_exporter_log_path: "{{ jmx_exporter_log_directory }}/{{ jmx_exporter_log_file }}"
+# If you need output to a file, you can use file:{{ jmx_exporter_log_path }}/{{ jmx_exporter_log_file }}, append:..., rsyslog and other
+# # options in Debian 10 (see https://www.freedesktop.org/software/systemd/man/systemd.exec.html)
+# jmx_exporter_log_directory: /var/log/jmx_exporter
+# jmx_exporter_log_file: "jmx_exporter.log"
+# jmx_exporter_log_path: "{{ jmx_exporter_log_directory }}/{{ jmx_exporter_log_file }}"
+jmx_exporter_log_output: journal
 
 jmx_exporter_classpath_entries: []
 #  - jar_path_1

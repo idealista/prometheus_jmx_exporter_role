@@ -21,6 +21,7 @@ This ansible role installs a Prometheus Node Exporter in a debian environment.
 
 These instructions will get you a copy of the role for your ansible playbook. Once launched, it will install an [Prometheus JMX Exporter](https://github.com/prometheus/jmx_exporter) server in a Debian system.
 
+*Note:* Beginning with the 3.0 version, the default behaviour is the service sending logs to systemd's journal instead to a log file. You can change it modifying the necessary ansible vars (see defaults/main.yml)
 ### Prerequisities
 
 Ansible 2.4.5.0 version installed.
