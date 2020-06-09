@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter_role/tree/develop)
 
+## [2.1.0](https://github.com/idealista/prometheus_jmx_exporter_role/tree/2.1.0)
+[Full Changelog](https://github.com/idealista/prometheus_jmx_exporter_role/compare/2.0.0...2.1.0)
 ### Added
 - *[#44](https://github.com/idealista/prometheus_jmx_exporter_role/issues/44) Upgraded to ansible 2.9, molecule 3 and goss 0.3.11* @frantsao
 - *[#44](https://github.com/idealista/prometheus_node_exporter_role/issues/44) Fixed systemd service configuration (changes default behaviour)* @frantsao

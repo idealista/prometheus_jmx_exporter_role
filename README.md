@@ -24,7 +24,7 @@ These instructions will get you a copy of the role for your ansible playbook. On
 *Note:* Beginning with the 3.0 version, the default behaviour is the service sending logs to systemd's journal instead to a log file. You can change it modifying the necessary ansible vars (see defaults/main.yml)
 ### Prerequisities
 
-Ansible 2.4.5.0 version installed.
+Ansible 2.9.x.x version installed.
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant](https://www.vagrantup.com/) as driver (with [vagrant-hostmanager](https://github.com/devopsgroup-io/vagrant-hostmanager)) and [VirtualBox](https://www.virtualbox.org/) as provider.
@@ -70,14 +70,25 @@ In previous versions, this variable pointed to a **folder** instead of a **file*
 
 ## Testing
 
+### Install dependencies
+
 ```sh
-pipenv install -r test-requirements.txt --python 2.7
-pipenv run molecule test -s default
+$ pipenv sync
+```
+
+For more information read the [pipenv docs](https://docs.pipenv.org/).
+
+### Testing
+
+```sh
+$ pipenv run molecule test 
 ```
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.5.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.9.9-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-3.0.4-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.11-green.svg)
 
 ## Versioning
 
