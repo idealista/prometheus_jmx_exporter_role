@@ -3,21 +3,25 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
-  options:
-    config-file: molecule/yaml-lint.yml
+lint: |
+  yamllint .
+  ansible-lint .
 platforms:
   - name: jmxexporter
     groups:
       - jmxexporter
-    image: geerlingguy/docker-debian9-ansible:latest
-    privileged: true
+    image: ${MOLECULE_DISTRO:-debian:buster-slim}
+    privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    tmpfs:
+      - '/tmp'
+      - '/run'
+      - '/run/lock'
     command: '/lib/systemd/systemd'
+    stop_signal: 'RTMIN+3'
 provisioner:
   name: ansible
   lint:
@@ -25,6 +29,4 @@ provisioner:
 scenario:
   name: custom_configuration
 verifier:
-  name: goss
-  lint:
-    name: yamllint
+  name: ansible

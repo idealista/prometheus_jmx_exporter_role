@@ -14,7 +14,7 @@
     shell: /usr/sbin/nologin
     createhome: false
 
-- name: JMX_EXPORTER | Ensure skeleton paths
+- name: JMX_EXPORTER | Ensure skeleton bin and config paths
   file:
     dest: "{{ item }}"
     owner: "{{ jmx_exporter_user }}"
@@ -23,7 +23,16 @@
   with_items:
     - "{{ jmx_exporter_root_directory }}"
     - "{{ jmx_exporter_conf_directory }}"
+
+- name: JMX_EXPORTER | Ensure skeleton log paths
+  file:
+    dest: "{{ item }}"
+    owner: "{{ jmx_exporter_user }}"
+    group: "{{ jmx_exporter_group }}"
+    state: directory
+  with_items:
     - "{{ jmx_exporter_log_directory }}"
+  when: jmx_exporter_log_directory is defined
 
 - name: JMX_EXPORTER | Download binary
   get_url:
