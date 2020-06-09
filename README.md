@@ -35,7 +35,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```yml
 - src: idealista.prometheus_jmx_exporter_role
-  version: 1.0.0
+  version: 2.1.0
   name: prometheus_jmx_exporter
 ```
 
