@@ -4,7 +4,7 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-PrivateTmp=yes
+PrivateTmp={{ jmx_exporter_private_tmp }}
 User={{ jmx_exporter_user }}
 Group={{ jmx_exporter_group }}
 RuntimeDirectory=jmx_exporter
