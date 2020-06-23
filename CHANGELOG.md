@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter_role/tree/develop)
+### Fixed
+- *[#48](https://github.com/idealista/prometheus_jmx_exporter_role/issues/48) Added service privateTmp option* @frantsao
 
 ## [2.1.0](https://github.com/idealista/prometheus_jmx_exporter_role/tree/2.1.0)
 [Full Changelog](https://github.com/idealista/prometheus_jmx_exporter_role/compare/2.0.0...2.1.0)

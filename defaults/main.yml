@@ -17,6 +17,8 @@ jmx_exporter_service_state: started
 # Files & Paths
 jmx_exporter_root_directory: /opt/jmx_exporter
 
+jmx_exporter_private_tmp: true
+
 jmx_exporter_jar_path: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_jar_file }}"
 
 jmx_exporter_conf_directory: /etc/jmx_exporter
