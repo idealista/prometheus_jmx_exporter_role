@@ -38,6 +38,7 @@
   get_url:
     url: "{{ jmx_exporter_url }}"
     dest: /tmp
+  when: not ansible_check_mode
 
 - name: JMX_EXPORTER | Copy binary
   copy:
@@ -47,6 +48,7 @@
     group: "{{ jmx_exporter_group }}"
     remote_src: true
     mode: 0755
+  when: not ansible_check_mode
   notify: restart jmx_exporter
 
 - name: JMX_EXPORTER | Link binary
@@ -54,6 +56,7 @@
     src: "{{ jmx_exporter_root_directory }}/{{ jmx_exporter_bin_name }}"
     dest: "{{ jmx_exporter_jar_path }}"
     state: link
+  when: not ansible_check_mode
 
 - name: JMX_EXPORTER | Copy Daemon script
   template:
