@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter_role/tree/develop)
+### Added
+- *[#62](https://github.com/idealista/prometheus_jmx_exporter_role/issues/62) Allow to change jmx_exporter_url* @sorobon
 
 ## [2.1.2](https://github.com/idealista/prometheus_jmx_exporter_role/tree/2.1.2)
 ### Fixed

@@ -1,8 +1,7 @@
 ---
-dist: bionic
 language: python
-python: "3.7"
-os: linux
+python: "3.9"
+sudo: required
 services:
   - docker
 install:
@@ -10,11 +9,12 @@ install:
   - pipenv sync
 env:
   jobs:
+    - MOLECULE_DISTRO=debian:bullseye-slim
     - MOLECULE_DISTRO=debian:buster-slim
     - MOLECULE_DISTRO=debian:stretch-slim
     - MOLECULE_DISTRO=debian:jessie-slim
 script:
-  - pipenv run molecule test --all
+  - pipenv run molecule test --all --destroy always
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
