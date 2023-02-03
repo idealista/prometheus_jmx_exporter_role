@@ -1,13 +1,22 @@
 # Molecule managed
 
 {% if item.registry is defined %}
-FROM {{ item.registry.url }}/{{ item.image }}
+FROM --platform=linux/amd64 {{ item.registry.url }}/{{ item.image }}
 {% else %}
-FROM {{ item.image }}
+FROM --platform=linux/amd64 {{ item.image }}
 {% endif %}
 
 # install minimal packages for debian slim images
+{% if 'bullseye' in item.image  %}
 RUN apt-get update && \
-    apt-get install -y python sudo bash ca-certificates iproute2 systemd systemd-sysv python-pip && \
+    DEBIAN_FRONTEND="noninteractive" apt-get install -y python3 sudo bash ca-certificates iproute2 systemd systemd-sysv python3-pip python3-lxml && \
+    update-alternatives --install /usr/bin/python python /usr/bin/python3 0 &&\
     apt-get clean
-RUN mkdir -p /usr/share/man/man1
+{% else %}
+RUN apt-get update && \
+    DEBIAN_FRONTEND="noninteractive" apt-get install -y -q python3 sudo bash ca-certificates iproute2 systemd systemd-sysv python3-lxml && \
+    apt-get clean
+{% endif %}
+
+STOPSIGNAL SIGRTMIN+3
+RUN systemctl set-default multi-user.target

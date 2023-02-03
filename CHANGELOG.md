@@ -6,6 +6,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/prometheus_jmx_exporter_role/tree/develop)
 
+## [2.2.0](https://github.com/idealista/prometheus_jmx_exporter_role/tree/2.2.0)
+### Added
+- *[#62](https://github.com/idealista/prometheus_jmx_exporter_role/issues/62) Allow to change jmx_exporter_url* @sorobon
+
 ## [2.1.2](https://github.com/idealista/prometheus_jmx_exporter_role/tree/2.1.2)
 ### Fixed
 - *[#52](https://github.com/idealista/prometheus_jmx_exporter_role/issues/52) Fixed systemd unit file* @frantsao
