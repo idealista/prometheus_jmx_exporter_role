@@ -1,4 +1,4 @@
 ---
 - src: idealista.java_role
-  version: 8.0.0
+  version: 9.0.1
   name: java_role
