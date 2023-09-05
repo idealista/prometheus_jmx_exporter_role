@@ -1,9 +1,9 @@
 ---
+dist: jammy
 language: python
-python: "3.9"
-sudo: required
+python: 3.9
 services:
-  - docker
+- docker
 install:
   - pip install pipenv
   - pipenv sync
