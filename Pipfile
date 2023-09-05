@@ -1,7 +1,7 @@
 [[source]]
-url = "http://nexus.int.sys.idealista/repository/pypi-public/simple"
-verify_ssl = false
-name = "pip_conf_index_global"
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
 
 [packages]
 ansible = "==5.0.1"
