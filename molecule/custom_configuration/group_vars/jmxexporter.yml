@@ -4,7 +4,7 @@ jmx_exporter_service_state: started
 
 jmx_exporter_port: 9119
 
-jmx_rmi: true
+jmx_exporter_rmi: true
 
 jmx_exporter_private_tmp: false
 

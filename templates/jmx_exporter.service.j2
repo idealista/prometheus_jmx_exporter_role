@@ -9,7 +9,7 @@ User={{ jmx_exporter_user }}
 Group={{ jmx_exporter_group }}
 RuntimeDirectory=jmx_exporter
 Environment='JAVA_OPTS=-Djava.awt.headless=true \
-{% if jmx_rmi %}
+{% if jmx_exporter_rmi %}
     -Dcom.sun.management.jmxremote.port={{ jmx_exporter_internal_port }} \
     -Dcom.sun.management.jmxremote.rmi.port={{ jmx_exporter_internal_port }} \
     -Djava.rmi.server.hostname={{ inventory_hostname }} \
