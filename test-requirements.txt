@@ -1,6 +1,5 @@
-ansible==5.0.1
-molecule==3.5.2
-molecule-docker==1.1.0 
+ansible==6.3.0
+ansible-lint==6.5.1
+molecule==6.0.2
+molecule-containers==2.0.0
 docker==6.1.3
-ansible-lint==4.2.0
-yamllint==1.29.0
