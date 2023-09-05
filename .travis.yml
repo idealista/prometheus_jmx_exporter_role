@@ -1,5 +1,4 @@
 ---
-dist: jammy
 language: python
 python: 3.9
 services:
@@ -9,7 +8,6 @@ install:
   - pipenv sync
 env:
   jobs:
-    - MOLECULE_DISTRO=debian:bookworm-slim
     - MOLECULE_DISTRO=debian:bullseye-slim
     - MOLECULE_DISTRO=debian:buster-slim
 script:
