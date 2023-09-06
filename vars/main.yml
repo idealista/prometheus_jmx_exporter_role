@@ -1,6 +1,8 @@
 ---
 
-jmx_exporter_bin_name: "jmx_prometheus_httpserver-{{ jmx_exporter_version }}-jar-with-dependencies.jar"
+jmx_exporter_bin_name: "{{ jmx_exporter_bin_name_new if jmx_exporter_version is version('0.17.0', '>=') else jmx_exporter_bin_name_old }}"
+jmx_exporter_bin_name_old: "jmx_prometheus_httpserver-{{ jmx_exporter_version }}-jar-with-dependencies.jar"
+jmx_exporter_bin_name_new: "jmx_prometheus_httpserver-{{ jmx_exporter_version }}.jar"
 jmx_exporter_default_url: "https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_httpserver/{{ jmx_exporter_version }}/{{ jmx_exporter_bin_name }}"
 
 jmx_exporter_jar_file: "jmx_exporter.jar"

@@ -1,6 +1,6 @@
 ---
 - name: Converge
-  hosts: all
+  hosts: jmxexporter
   roles:
-    - role: java_role
-    - role: prometheus_jmx_exporter_role
+    - java_role
+    - prometheus_jmx_exporter_role

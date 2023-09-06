@@ -1,7 +1,7 @@
 ---
 ## General
 
-jmx_exporter_version: 0.3.1
+jmx_exporter_version: 0.20.0
 
 ## Service options
 
@@ -48,5 +48,5 @@ jmx_exporter_internal_port: 5555
 jmx_exporter_xmx: 32m
 jmx_exporter_xms: 32m
 
-## This should be true if you want to debug with Vagrant and Jconsole
-jmx_rmi: false
+## This should be true if you want to debug with tools like Jconsole
+jmx_exporter_rmi: "{{ jmx_rmi if jmx_rmi is defined and jmx_rmi is not sameas None and jmx_rmi else false }}"
